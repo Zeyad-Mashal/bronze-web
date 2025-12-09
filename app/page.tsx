@@ -64,12 +64,12 @@ export default function Home() {
               فريقنا الماهر يقدم نتائج عالية الجودة لنضمن مظهرًا رائعًا وبقاء سيارتك محمية.
             </p>
 
-            <a className="relative inline-block px-6 py-2 font-bold text-[#b87333] bg-gradient-to-r from-[#B08B4F] to-white rounded-full overflow-hidden group">
+            <div className="relative inline-block px-6 py-2 font-bold text-[#b87333] bg-gradient-to-r from-[#B08B4F] to-white rounded-full overflow-hidden group">
               <span className="absolute inset-0 w-full h-full bg-white opacity-20 blur-xl animate-cloud"></span>
               <Link href="/about" className="relative z-10 text-black">
                 المزيد من المعرفة
               </Link>
-            </a>
+            </div>
           </div>
 
         </div>
@@ -243,13 +243,13 @@ export default function Home() {
       <TestimonialsSlider />
       <ContactSection />
       <a
-  href="https://wa.me/966532164658" // غير الرقم برقمك على الواتساب بصيغة دولية بدون + أو صفر بادئ
-  target="_blank"
-  rel="noopener noreferrer"
-  className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50"
->
-  <FaWhatsapp className="text-3xl" />
-</a>
+        href="https://wa.me/966532164658" // غير الرقم برقمك على الواتساب بصيغة دولية بدون + أو صفر بادئ
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50"
+      >
+        <FaWhatsapp className="text-3xl" />
+      </a>
     </div>
   );
 }
