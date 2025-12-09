@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
+const slides = [
+  "/bronze1.jpg",
+  "/bronze2.jpg",
+  "/bronze3.jpg",
+  "/bronze4.jpg",
+];
 export default function HeroSlider() {
-  const slides = [
-    "/bronze1.jpg",
-    "/bronze2.jpg",
-    "/bronze3.jpg",
-    "/bronze4.jpg",
-  ];
+
 
   const [index, setIndex] = useState(0);
 
@@ -17,6 +17,7 @@ export default function HeroSlider() {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
     }, 3000);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -39,7 +40,7 @@ export default function HeroSlider() {
         alt="Hero Slide"
         fill
         priority
-        className="object-contain relative z-10 transition-all duration-700"
+        className="object-contain relative z-[10] transition-all duration-700"
       />
 
       {/* Overlay على الديسكتوب */}

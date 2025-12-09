@@ -1,5 +1,7 @@
 
 import img from "../../public/logoo.png"
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-black text-white py-16" dir="rtl">
@@ -7,16 +9,20 @@ export default function Footer() {
 
         {/* --- Logo + Text --- */}
         <div className="col-span-1 flex flex-col items-center md:items-start text-center md:text-right">
-          <img
-            src={img.src}
+          <Image
+            src={img}
             alt="logo"
             className="w-33 mb-4"
+            priority
           />
-          <p className="leading-8 text-gray-300 text-sm">برونز كفر مركز متخصص في تقديم خدمات احترافية لحماية وتغليف السيارات بأعلى جودة.
+
+          <p className="leading-8 text-gray-300 text-sm">
+            برونز كفر مركز متخصص في تقديم خدمات احترافية لحماية وتغليف السيارات بأعلى جودة.
             نمتلك خبرة تمتد لأكثر من 15 عامًا في مجال حماية السيارات، تخصصنا خلالها في تقديم أحدث حلول الحماية وتطبيق أفضل الممارسات العالمية للحفاظ على سلامة المركبات وجمالها.
             <br />
-            نعتني بأدق التفاصيل، لأننا نؤمن إن سيارتك ما تستاهل إلا الأفضل، و**"لمستنا… هي اللي تكملها."
+            نعتني بأدق التفاصيل، لأننا نؤمن إن سيارتك ما تستاهل إلا الأفضل، و«لمستنا… هي اللي تكملها.»
           </p>
+
         </div>
 
         {/* --- Working Hours --- */}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { FaWhatsapp } from "react-icons/fa";
+import Image from "next/image";
 
 import {
   FaInstagram,
@@ -64,11 +65,13 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-6  text-sm w-full max-w-screen-xl mx-auto">
 
         {/* Logo */}
-        <img
-          src={logo.src}
-          alt="Pro Rays Logo"
+        <Image
+          src={logo}
+          alt="Bronze Cover Logo"
           className="h-10 md:h-14 lg:h-16 w-auto"
+          priority
         />
+
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6  text-lg font-semibold whitespace-nowrap">
