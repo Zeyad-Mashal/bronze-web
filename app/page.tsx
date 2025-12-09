@@ -180,12 +180,12 @@ export default function Home() {
           </div>
 
           <div className="mt-12">
-            <a className="relative inline-block px-6 py-2 font-bold text-[#f3f0ed] bg-gradient-to-r from-[#B08B4F] to-white rounded-full overflow-hidden group">
+            <div className="relative inline-block px-6 py-2 font-bold text-[#f3f0ed] bg-gradient-to-r from-[#B08B4F] to-white rounded-full overflow-hidden group">
               <span className="absolute inset-0 w-full h-full bg-white opacity-20 blur-xl animate-cloud"></span>
               <Link href="/services">
                 <span className="relative z-10 text-black">عرض جميع الخدمات</span>
               </Link>
-            </a>
+            </div>
           </div>
         </div>
       </section>

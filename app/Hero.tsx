@@ -8,18 +8,37 @@ const slides = [
   "/bronze3.jpg",
   "/bronze4.jpg",
 ];
+
 export default function HeroSlider() {
-
-
   const [index, setIndex] = useState(0);
 
+  // نضيف mounted لمنع Hydration Mismatch
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // نشغّل السلايدر فقط بعد hydration
+  useEffect(() => {
+    if (!mounted) return;
+
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
     }, 3000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [mounted]);
+
+  // SSR fallback (مهم جداً)
+  if (!mounted) {
+    return (
+      <div
+        className="relative w-full mt-16 bg-black"
+        style={{ aspectRatio: "16/9" }}
+      />
+    );
+  }
 
   return (
     <div className="relative w-full mt-16" style={{ aspectRatio: "16/9" }}>
@@ -56,7 +75,7 @@ export default function HeroSlider() {
             key={i}
             onClick={() => setIndex(i)}
             className={`w-3 h-3 rounded-full transition-all duration-300
-              ${index === i ? "bg-white scale-125" : "bg-white/40"}
+              ${index === i ? "bg-black scale-125" : "bg-black/40"}
             `}
           />
         ))}
