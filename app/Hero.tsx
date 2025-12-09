@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const slides = [
-  "/bronze1.jpg",
-  "/bronze2.jpg",
-  "/bronze3.jpg",
-  "/bronze4.jpg",
+  "/h1.png",
+  "/h2.png",
+  "/h3.png",
+  "/h4.png",
 ];
 
 export default function HeroSlider() {
@@ -20,7 +20,7 @@ export default function HeroSlider() {
     }, 3000);
 
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, []);
 
   return (
     <div className="relative w-full mt-16" style={{ aspectRatio: "16/9" }}>
@@ -32,7 +32,6 @@ export default function HeroSlider() {
           backgroundImage: `url(${slides[index]})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "blur(8px)",
         }}
       />
 

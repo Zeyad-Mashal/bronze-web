@@ -4,19 +4,20 @@ export default function Contact() {
   return (
     <section className="w-full py-20  flex justify-center items-center">
 
-      
+
       <div className="container mx-auto grid md:grid-cols-2 gap-10 items-center px-6" dir="rtl">
 
-        
+
 
         {/* ------- TEXT SECTION ------- */}
         <div className="text-center  text-white">
           <h2 className="text-4xl font-bold  mb-5 text-[#B08B4F] font-bold">احجز خدمة خبير اليوم!</h2>
 
           <p className="leading-8 mb-6 text-black">
-           امنح سيارتك التجربة التي تليق بها مع خدماتنا المتميزة. نحن في برورايز نؤمن أن سيارتك ليست مجرد وسيلة نقل، بل انعكاس لذوقك وأسلوب حياتك. لذلك نحرص على تقديم حلول متكاملة تحافظ على مظهرها الفاخر وأدائها العالي.
+            امنح سيارتك التجربة اللي تليق بها مع خدمات حماية فائقة الجودة,
+            نحن في برونز كوفر نؤمن ان سيارتك ليست مجرد وسيلة نقل بل تجربة راقية يستحق ان يعيشها عميل برونز كوفر.
 
-من خلال خبرتنا وفريقنا المتخصص، نقدّم لك خدمات احترافية تشمل:
+            من خلال خبرتنا وفريقنا المتخصص، نقدّم لك خدمات احترافية تشمل:
           </p>
 
           <ul className="space-y-3 text-right text-black text-lg">
@@ -28,7 +29,7 @@ export default function Contact() {
 
 
 
-{/* ------- FORM ------- */}
+        {/* ------- FORM ------- */}
         <div className="bg-black/70 p-8 rounded-2xl shadow-xl text-white backdrop-blur-md">
           <form className="flex flex-col gap-5">
 

@@ -1,200 +1,141 @@
 "use client";
 import Image from "next/image";
-import img from "../../public/about/about1.webp";
-import img2 from "../../public/about/IMG_2660-1024x768.jpg.webp";
-import img3 from "../../public/about/IMG_2780-1024x768.jpg.webp";
-import img4 from "../../public/about/seraec.webp";
-import img5 from "../../public/about/IMG_3411-rawznxb68yfs4jgenlu7ox6j017bglvlngm1wmn99c.jpg";
 
-export default function AboutSection() {
+import hero from "../../public/about/about1.webp";
+import ppfImg from "../../public/ppf-bronze.png";
+import nanoImg from "../../public/nano-bronze.png";
+import tintImg from "../../public/shadowing-bronze.png";
+import leatherImg from "../../public/ground-bronze.png";
+import glassImg from "../../public/photo4.jpg";
+import polishImg from "../../public/photo5.jpg";
+import interiorNano from "../../public/photo6.jpg";
+import type { StaticImageData } from "next/image";
+
+export default function BrandProfile() {
   return (
-    <section id="about" className="w-full">
-      {/* ===== HERO ===== */}
-      <div className="relative w-full h-screen">
-        <Image
-          src={img}
-          alt="About Us"
-          fill
-          className="object-cover"
-        />
+    <section className="w-full">
 
-        <div className="absolute inset-0 bg-black/55 backdrop-blur-[1px]" />
+      {/* ====================== HERO ====================== */}
+      <div className="relative w-full h-[90vh]">
+        <Image src={hero} alt="Bronze Cover" fill className="object-cover" />
+        <div className="absolute inset-0 bg-black/60" />
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-          <h1 className="text-5xl font-extrabold tracking-wide mb-4 ">
-            نبذة عنا
-          </h1>
-          <p className="text-lg text-gray-200">
-            حماية السيارة عازل حراري وفانو سيراميك
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
+          <h1 className="text-5xl font-bold mb-4">ملف تعريفي — برونز كفر</h1>
+          <p className="text-lg max-w-2xl">
+            خبرة لأكثر من 15 عامًا في تقديم حلول حماية وتغليف السيارات بأعلى جودة
           </p>
         </div>
       </div>
 
+      {/* ====================== BRAND IDENTITY ====================== */}
+      <div className="max-w-6xl mx-auto py-20 px-6">
+        <h2 className="text-4xl font-bold text-[#b87d36] text-center mb-10">التعريف بالبراند</h2>
 
-      {/* ===== MAIN ABOUT SECTION ===== */}
-      <div className="w-full py-20 px-6 md:px-14 lg:px-28 ">
-        <div className="max-w-[1500px] mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+        <p className="text-black text-lg leading-8 text-center mb-8">
+          برونز كفر هو مركز متخصص في تقديم خدمات احترافية لحماية وتغليف السيارات بأعلى جودة.
+          نمتلك خبرة تمتد لأكثر من 15 عامًا في هذا المجال، وقدمنا خلالها حلولًا مبتكرة باستخدام أحدث تقنيات الحماية.
+        </p>
 
-          {/* IMAGE */}
-          <div className="flex-1 flex items-center justify-end">
-            <div className="rounded-2xl overflow-hidden shadow-xl border border-[#b87d36]/40">
-              <Image
-                src={img5} // غيّر الصورة هنا
-                alt="Pro Rays Center"
-                width={500}
-                height={480}
-                className="object-cover"
-              />
+        <p className="text-black text-lg leading-8 text-center mb-8">
+          نعتني بأدق التفاصيل… لأن سيارتك تستاهل الأفضل.
+          <strong className="text-[#b87d36]"> <strong className="text-[#b87d36]">
+            &quot;لمستنا… هي اللي تكملها.&quot;
+          </strong>
+          </strong>
+        </p>
+
+        {/* Vision - Mission */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12">
+          <div className="p-8 border border-[#b87d36]/40 rounded-2xl shadow-xl bg-white">
+            <h3 className="text-3xl font-bold text-[#b87d36] mb-4">🌟 الرؤية</h3>
+            <p className="text-black leading-7">
+              أن نكون الخيار الأول في السعودية لكل من يبحث عن حماية فاخرة، وأناقة تدوم،
+              ولمسة احترافية تميز سيارته.
+            </p>
+          </div>
+
+          <div className="p-8 border border-[#b87d36]/40 rounded-2xl shadow-xl bg-white">
+            <h3 className="text-3xl font-bold text-[#b87d36] mb-4">🎯 الرسالة</h3>
+            <p className="text-black leading-7">
+              نوفر حلول حماية متكاملة للسيارات باستخدام أقوى التقنيات وأفضل الخامات،
+              لنضمن للعميل حماية طويلة المدى ولمسة فخامة استثنائية.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ====================== SERVICE STEPS ====================== */}
+      <div className="w-full bg-[#f8f8f8] py-20 px-6">
+        <h2 className="text-4xl font-bold text-[#b87d36] text-center mb-10">📍 خطوات الخدمة</h2>
+
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
+          {[
+            "استقبال العميل وتحديد الخدمة",
+            "معاينة السيارة وتقديم الاستشارة",
+            "الاتفاق على المدة والتكلفة",
+            "تنفيذ الخدمة باحترافية",
+            "التسليم وضمان رضا العميل",
+          ].map((step, index) => (
+            <div key={index} className="p-6 bg-white rounded-xl border border-[#b87d36]/40 shadow-xl">
+              <h3 className="text-xl font-bold text-[#b87d36] mb-3">0{index + 1}</h3>
+              <p className="text-black">{step}</p>
             </div>
-          </div>
+          ))}
+        </div>
+      </div>
 
+      {/* ====================== SERVICES SECTION ====================== */}
+      <div className="w-full py-20 px-6">
+        <h2 className="text-4xl font-bold text-[#b87d36] text-center mb-14">خدماتنا</h2>
 
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
+          {/* ======== خدمة 1 ======== */}
+          <ServiceCard img={ppfImg} title="حماية الطلاء PPF" desc="حماية مقدمة — نصفية — كاملة Premium و Ultra" />
 
-          {/* TEXT */}
-          <div className="flex-1 text-right">
-            <h2 className="text-3xl font-bold text-[#b87d36] mb-6">
-              مرحبًا بكم في <span >برو رايز</span> شركة حماية السيارات
-            </h2>
+          {/* ======== خدمة 2 ======== */}
+          <ServiceCard img={nanoImg} title="النانو سيراميك" desc="نانو خارجي — نانو داخلي — حماية شاشات" />
 
-            <p className="text-black leading-8 mb-3">
-              لقد حملت سيارتك حمل احلامك، فهي صديق الرحلات الطويلة ووجهات الليل المتاخرة أو متعة يوم الاحد البسيطة...
-              نحن ندرك كل تلك الذكريات، ولذلك نحن هنا لحمايتها.
-            </p>
+          {/* ======== خدمة 3 ======== */}
+          <ServiceCard img={tintImg} title="تظليل عازل حراري" desc="تظليل حراري نانو سيراميك بأعلى جودة" />
 
-            <p className="text-black leading-8 mb-3">
-              في مركز برو رايز للحماية، ندرك هذا الارتباط العميق؛ لذلك نحن لا نحمي سيارتك فحسب، بل نحمي ايضا
-              الاحساس والفخر الذي تستمده منها.
-            </p>
+          {/* ======== خدمة 4 ======== */}
+          <ServiceCard img={leatherImg} title="أرضيات جلد فاخرة" desc="راحة وفخامة داخل المقصورة بجلد مقاوم للتآكل" />
 
-            <p className="text-black leading-8 mb-3">
-              خدماتنا من العزل الحراري، افلام حماية الطلاء، والتظليل الاحترافي... كلها تقدم لوحة جديدة من
-              الرفاهية والراحة.
-            </p>
+          {/* ======== خدمة 5 ======== */}
+          <ServiceCard img={polishImg} title="تلميع خارجي احترافي" desc="تلميع طبقات متعددة يعيد اللمعان كالوكالة" />
 
-            <p className="text-black leading-8">
-              احجز الآن مع برو رايز وتمتع بحماية تدوم وجمالية فريدة.
-            </p>
-          </div>
+          {/* ======== خدمة 6 ======== */}
+          <ServiceCard img={glassImg} title="حماية الزجاج الأمامي" desc="طبقة حماية شفافة مع ضمان حتى سنة" />
 
-
+          {/* ======== خدمة 7 ======== */}
+          <ServiceCard img={interiorNano} title="النانو الداخلي" desc="حماية المراتب والديكورات والجلود ضد البقع" />
 
         </div>
       </div>
 
-      <div className="w-full py-20 px-6 md:px-14 lg:px-28 ">
-        <div className="max-w-[1500px] mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
-
-          {/* IMAGE */}
-          <div className="flex-1 flex items-center justify-end">
-            <div className="rounded-2xl overflow-hidden shadow-xl border border-[#b87d36]/40">
-              <Image
-                src={img2} // غيّر الصورة هنا
-                alt="Pro Rays Center"
-                width={500}
-                height={480}
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-
-
-
-          {/* TEXT */}
-          <div className="flex-1 text-right">
-            <h2 className="text-3xl font-bold text-[#b87d36] mb-6">
-              حماية طلاء السيارة
-            </h2>
-
-            <p className="text-black leading-8 mb-3">
-              ان سيارتك ليست مجرد مركبة، بل هي مصدر فخر واعتزاز، لكن كل خدش أو شق أو بهتان في الطلاء قد يجعلك تشعر بخسارة شخصية. في برو رايز لحماية السيارات ندرك تمامًا قيمة سيارتك بالنسبة لك، ولهذا نقدم أفضل حلول حماية الطلاء للحفاظ على مظهرها خاليًا من العيوب..
-            </p>
-
-
-          </div>
-
-
-
-        </div>
-      </div>
-      <div className="w-full py-20 px-6 md:px-14 lg:px-28 ">
-        <div className="max-w-[1500px] mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
-
-          {/* IMAGE */}
-          <div className="flex-1 flex items-center justify-end">
-            <div className="rounded-2xl overflow-hidden shadow-xl border border-[#b87d36]/40">
-              <Image
-                src={img3} // غيّر الصورة هنا
-                alt="Pro Rays Center"
-                width={500}
-                height={480}
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-
-
-
-          {/* TEXT */}
-          <div className="flex-1 text-right">
-            <h2 className="text-3xl font-bold text-[#b87d36] mb-6">
-              تظليل عازل حراري
-            </h2>
-
-            <p className="text-black leading-8 mb-3">
-              إن سيارتك ليست مجرد مركبة؛ إنها مصدر فخر وامتداد لشخصيتك، لكن كل خدش أو بهتان في الطلاء قد يجعلك تشعر بخسارة جزء من هذا الفخر. في برو رايز لحماية السيارات ندرك جيدًا قيمة سيارتك بالنسبة لك، ولهذا نقدم حلولًا متخصصة للحفاظ على مظهرها خاليًا من العيوب..
-            </p>
-
-
-          </div>
-
-
-
-        </div>
-      </div>
-      <div className="w-full py-20 px-6 md:px-14 lg:px-28 ">
-        <div className="max-w-[1500px] mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
-
-          {/* IMAGE */}
-          <div className="flex-1 flex items-center justify-end">
-            <div className="rounded-2xl overflow-hidden shadow-xl border border-[#b87d36]/40">
-              <Image
-                src={img4} // غيّر الصورة هنا
-                alt="Pro Rays Center"
-                width={500}
-                height={480}
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-
-
-
-          {/* TEXT */}
-          <div className="flex-1 text-right">
-            <h2 className="text-3xl font-bold text-[#b87d36] mb-6">
-              نانو سيراميك
-            </h2>
-
-            <p className="text-black leading-8 mb-3">
-              نقدم لك تقنية النانو سيراميك المتطورة، التي تُشكل درعًا قويًا ومرنًا ضد الخدوش، والأشعة الضارة، والملوثات البيئية، لتمنحك ليس مجرد حماية، بل تجربة متجددة مع مظهر سيارتك الذي تحبه. ومع أسعارنا التنافسية وقيمتنا الاستثنائية، نضمن لك أن استثمارك في النانو سيراميك سيعود عليك بجمال وحماية تدوم لسنوات.ا.
-            </p>
-
-
-
-
-
-
-          </div>
-
-
-
-        </div>
-      </div>
-      {/* <Testimonials /> */}
     </section>
+  );
+}
+interface ServiceCardProps {
+  img: StaticImageData | string;
+  title: string;
+  desc: string;
+}
+/* ======= COMPONENT FOR SERVICES ======= */
+function ServiceCard({ img, title, desc }: ServiceCardProps) {
+  return (
+    <div className="rounded-2xl overflow-hidden shadow-xl border border-[#b87d36]/40 bg-white hover:-translate-y-1 transition-all duration-300">
+      <div className="w-full h-64 overflow-hidden">
+        <Image src={img} alt={title} className="w-full h-full bg-white" />
+      </div>
+
+
+      <div className="p-6 text-right">
+        <h3 className="text-2xl font-bold text-[#b87d36] mb-2">{title}</h3>
+        <p className="text-black leading-7">{desc}</p>
+      </div>
+    </div>
   );
 }
