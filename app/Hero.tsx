@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
+import "./Hero.css"
 const slides = [
   "/h1.png",
   "/h2.png",
@@ -23,38 +23,24 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <div className="relative w-full mt-16" style={{ aspectRatio: "16/9" }}>
-
-      {/* الخلفية Blur */}
-      <div
-        className="absolute inset-0 opacity-60"
-        style={{
-          backgroundImage: `url(${slides[index]})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+    <div className="hero">
 
       {/* الصورة الأساسية */}
       <Image
         src={slides[index]}
         alt="Hero Slide"
-        fill
+        width={1000}
+        height={1000}
         priority
-        className="object-contain relative z-[10] transition-all duration-700"
       />
-
-      {/* Overlay للموبايل */}
-      <div className="absolute inset-0 bg-black/30 z-[5] md:hidden"></div>
-
       {/* Dots Indicators */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+      <div className="dots">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
             className={`w-3 h-3 rounded-full transition-all duration-300
-              ${index === i ? "bg-white scale-125" : "bg-white/40"}
+              ${index === i ? "bg-black scale-125" : "bg-black/40"}
             `}
           />
         ))}
