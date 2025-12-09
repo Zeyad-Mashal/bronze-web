@@ -5,7 +5,6 @@ import img2 from "../../public/about/IMG_2660-1024x768.jpg.webp";
 import img3 from "../../public/about/IMG_2780-1024x768.jpg.webp";
 import img4 from "../../public/about/seraec.webp";
 import img5 from "../../public/about/IMG_3411-rawznxb68yfs4jgenlu7ox6j017bglvlngm1wmn99c.jpg";
-import Testimonials from "../Testimonials";
 
 export default function AboutSection() {
   return (
