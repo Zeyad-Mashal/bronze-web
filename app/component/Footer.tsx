@@ -1,7 +1,7 @@
 
 import img from "../../public/logoo.png"
 import Image from "next/image";
-
+import "./Footer.css"
 export default function Footer() {
   return (
     <footer className="bg-black text-white py-16" dir="rtl">
@@ -66,7 +66,7 @@ export default function Footer() {
             الرياض – طريق خريص، بجوار وكالة رنج روفر.
           </p>
           <span><a href="https://maps.app.goo.gl/zHY4x2C3crwy3Fsr7" target="_blanck">الموقع علي الخريطه</a></span> */}
-          <div className="flex justify-center">
+          <div className="flex justify-center map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14492.740181723586!2d46.8294754!3d24.7548438!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2fabdbf9e446f3%3A0x19d384c9a094d0e!2zQnJvbnplIGNvdmVyIC0g2KjYsdmI2YbYsiDZg9mI2qTYsQ!5e0!3m2!1sar!2seg!4v1765285302387!5m2!1sar!2seg"
               width="400"
