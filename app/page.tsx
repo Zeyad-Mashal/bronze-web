@@ -140,7 +140,7 @@ export default function Home() {
             <div className="text-center border-[#b87333]">
               <img
                 src={Image2.src}
-                className="w-full h-52 object-cover rounded-xl shadow-md"
+                className="w-full h-60 object-cover rounded-xl shadow-md"
                 alt="ارضيات جلد للسيارات"
               />
               <Link href="/leather">
@@ -151,7 +151,7 @@ export default function Home() {
             <div className="text-center border-[#b87333]">
               <img
                 src={Image3.src}
-                className="w-full h-52 object-cover rounded-xl shadow-md"
+                className="w-full h-60 object-cover rounded-xl shadow-md"
                 alt="تظليل العازل حراري"
               />
               <Link href="/tint">
@@ -162,7 +162,7 @@ export default function Home() {
             <div className="text-center border-[#b87333]">
               <img
                 src={Image4.src}
-                className="w-full h-52 object-cover rounded-xl shadow-md"
+                className="w-full h-60 object-cover rounded-xl shadow-md"
                 alt="النانو سيراميك"
               />
               <Link href="/nano">
@@ -173,7 +173,7 @@ export default function Home() {
             <div className="text-center border-[#b87333]">
               <img
                 src={Image5.src}
-                className="w-full h-52 object-cover rounded-xl shadow-md"
+                className="w-full h-60 object-cover rounded-xl shadow-md"
                 alt="حماية السيارة PPF"
               />
               <Link href="/ppf">
