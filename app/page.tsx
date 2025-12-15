@@ -22,6 +22,7 @@ import Link from "next/link";
 import ContactSection from './call';
 import { motion } from "framer-motion";
 import GetBlogs from "./API/GetBlogs";
+import GetServices from "./API/GetServices";
 
 interface BlogItem {
   _id: string;
@@ -31,6 +32,12 @@ interface BlogItem {
   date: string;
 }
 
+interface ServiceItem {
+  _id: string;
+  name: string;
+  description: string;
+  images: Array<{ url: string }>;
+}
 const formatDate = (dateString: string): string => {
   try {
     const date = new Date(dateString);
@@ -65,9 +72,11 @@ export default function Home() {
   const [allBlogs, setAllBlogs] = useState<BlogItem[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [allServices, setAllServices] = useState<ServiceItem[]>([]);
 
   useEffect(() => {
     GetBlogs(setAllBlogs, setError, setLoading);
+    GetServices(setAllServices, setError, setLoading);
   }, []);
 
   return (
@@ -169,49 +178,22 @@ export default function Home() {
           <div className="w-24 h-1 bg-[#B08B4F] mx-auto mb-12"></div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-            <div className="text-center border-[#b87333]">
-              <img
-                src={Image2.src}
-                className="w-full h-60 object-cover rounded-xl shadow-md"
-                alt="ارضيات جلد للسيارات"
-              />
-              <Link href="/leather">
-                <h3 className="mt-4 text-xl font-bold text-[#b87333]">ارضيات جلد للسيارات</h3>
+            {allServices.map((service) => (
+              <Link
+                key={service._id}
+                href={`/services/${service._id}`}
+                className="text-center border-[#b87333] block hover:scale-105 transition-transform duration-300 cursor-pointer"
+              >
+                {service.images && service.images[0]?.url && (
+                  <img
+                    src={service.images[0].url}
+                    className="w-full h-60 object-cover rounded-xl shadow-md"
+                    alt={service.name}
+                  />
+                )}
+                <h3 className="mt-4 text-xl font-bold text-[#b87333]">{service.name}</h3>
               </Link>
-            </div>
-
-            <div className="text-center border-[#b87333]">
-              <img
-                src={Image3.src}
-                className="w-full h-60 object-cover rounded-xl shadow-md"
-                alt="تظليل العازل حراري"
-              />
-              <Link href="/tint">
-                <h3 className="mt-4 text-xl font-bold text-[#b87333]">تظليل العازل حراري للسيارات</h3>
-              </Link>
-            </div>
-
-            <div className="text-center border-[#b87333]">
-              <img
-                src={Image4.src}
-                className="w-full h-60 object-cover rounded-xl shadow-md"
-                alt="النانو سيراميك"
-              />
-              <Link href="/nano">
-                <h3 className="mt-4 text-xl font-bold text-[#b87333]">النانو سيراميك للسيارات</h3>
-              </Link>
-            </div>
-
-            <div className="text-center border-[#b87333]">
-              <img
-                src={Image5.src}
-                className="w-full h-60 object-cover rounded-xl shadow-md"
-                alt="حماية السيارة PPF"
-              />
-              <Link href="/ppf">
-                <h3 className="mt-4 text-xl font-bold text-[#b87333]">حماية السيارة PPF</h3>
-              </Link>
-            </div>
+            ))}
           </div>
 
           <div className="mt-12">
@@ -261,14 +243,16 @@ export default function Home() {
             {allBlogs.map((item) => (
               <div
                 key={item._id}
-                className="rounded- 2xl overflow-hidden bg-white border border-[#b87333]/20 shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="rounded-2xl overflow-hidden bg-white border border-[#b87333]/20 shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="w-full h-56 bg-white flex items-center justify-center border-b border-[#b87333]/30">
-                  <img
-                    src={item.image && item.image[0]?.url ? item.image[0].url : ""}
-                    alt={item.title}
-                    className="max-h-full max-w-full object-contain"
-                  />
+                  {item.image && item.image[0]?.url && (
+                    <img
+                      src={item.image[0].url}
+                      alt={item.title}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  )}
                 </div>
 
                 <div className="p-6">
