@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "../public/COVER_SVJ_ADPERSONAM.webp";
 import Image2 from "../public/ground-bronze.png";
 import Image3 from "../public/shadowing-bronze.png";
@@ -21,6 +21,30 @@ import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import ContactSection from './call';
 import { motion } from "framer-motion";
+import GetBlogs from "./API/GetBlogs";
+
+interface BlogItem {
+  _id: string;
+  image: Array<{ url: string }>;
+  title: string;
+  description: string;
+  date: string;
+}
+
+const formatDate = (dateString: string): string => {
+  try {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      return dateString; // Return original if invalid date
+    }
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+  } catch (error) {
+    return dateString; // Return original if error
+  }
+};
 
 export default function Home() {
 
@@ -37,6 +61,14 @@ export default function Home() {
     { id: 8, title: "حماية من الداخل: دعاسات جلد أو بلاستيك حسب ذوقك", description: "الاهتمام بالديكور الداخلي يرفع من راحة القيادة ويحافظ على نظافة السيارة. في Bronze Cover، نوفر خيارات دعاسات متعددة تناسب جميع الأذواق، ومقاومة للماء والتآكل.", date: "30 سبتمبر 2025", img: Image12 },
     { id: 9, title: "أفلام حماية السيارات: شفافة، قوية، وبتقنية حديثة", description: "أفلام الحماية الشفافة من برونز كفر مصممة لتتماشى مع شكل السيارة دون أن تؤثر على اللون أو التصميم. مقاومة للخدوش، الطين، وأشعة الشمس، مع ضمان رسمي على الجودة والتركيب.", date: "30 سبتمبر 2025", img: Image12 },
   ];
+
+  const [allBlogs, setAllBlogs] = useState<BlogItem[]>([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    GetBlogs(setAllBlogs, setError, setLoading);
+  }, []);
 
   return (
     <div className="overflow-hidden  text-black [&_p]:text-black">
@@ -226,14 +258,14 @@ export default function Home() {
           <h2 className="text-4xl font-bold mb-10 text-[#b87333] text-center">آخر الأخبار</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-[#b87333]">
-            {news.map((item) => (
+            {allBlogs.map((item) => (
               <div
-                key={item.id}
-                className="rounded-2xl overflow-hidden bg-white border border-[#b87333]/20 shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                key={item._id}
+                className="rounded- 2xl overflow-hidden bg-white border border-[#b87333]/20 shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="w-full h-56 bg-white flex items-center justify-center border-b border-[#b87333]/30">
                   <img
-                    src={typeof item.img === "string" ? item.img : item.img?.src}
+                    src={item.image && item.image[0]?.url ? item.image[0].url : ""}
                     alt={item.title}
                     className="max-h-full max-w-full object-contain"
                   />
@@ -242,7 +274,7 @@ export default function Home() {
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold mb-3 tracking-wide text-[#d8a26e]">{item.title}</h3>
                   <p className="text-black text-sm leading-relaxed mb-4">{item.description}</p>
-                  <span className="text-[#C49A6C] text-xs tracking-wider">{item.date}</span>
+                  <span className="text-[#C49A6C] text-xs tracking-wider">{formatDate(item.date)}</span>
                 </div>
               </div>
             ))}
