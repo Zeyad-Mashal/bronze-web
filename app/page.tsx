@@ -4,17 +4,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "../public/COVER_SVJ_ADPERSONAM.webp";
-import Image2 from "../public/ground-bronze.png";
-import Image3 from "../public/shadowing-bronze.png";
-import Image4 from "../public/nano-bronze.png";
-import Image5 from "../public/ppf-bronze.png";
-import Image6 from "../public/photo6.jpg";
 import Image7 from "../public/photo2.jpg";
-import Image8 from "../public/photo11.jpg";
-import Image9 from "../public/photo4.jpg";
-import Image10 from "../public/photo5.jpg";
-import Image12 from "../public/photo8.jpg";
-import Image13 from "../public/photo7.jpg";
 import HeroSlider from "./Hero";
 import TestimonialsSlider from './Testimonials';
 import { FaWhatsapp } from "react-icons/fa";
@@ -48,35 +38,18 @@ const formatDate = (dateString: string): string => {
     const day = date.getDate().toString().padStart(2, '0');
     const year = date.getFullYear();
     return `${month}/${day}/${year}`;
-  } catch (error) {
-    return dateString; // Return original if error
+  } catch {
+      return dateString; // Return original if error
   }
 };
 
 export default function Home() {
-
-  const news = [
-    { id: 1, title: "PPF يعتبر الخيار الأفضل لحماية سيارتك؟", description: "تغليف السيارة بـ PPF (Paint Protection Film) هو الحل الذكي لحماية الطلاء الأصلي من الخدوش، الأتربة، والعوامل الجوية. عندك سيارة جديدة؟ أو حاب تحافظ على لمعة سيارتك؟ برونز كفر يوفر لك PPF أصلي ومعتمد بخامات عالية الجودة وضمان حقيقي. احمِ سيارتك اليوم وخلّ لمعتها تدوم سنين", date: "25 سبتمبر 2025", img: Image6 },
-    {
-      id: 2, title: "حماية نانو سيراميك: درع شفاف يحافظ على لمعة سيارتك", description: "النانو سيراميك مش بس طبقة لامعة، هو حاجز قوي ضد الأوساخ، الأشعة فوق البنفسجية، وعوامل التآكل.برونز كفر يستخدم نانو سيراميك عالي الجودة يُطبق باحترافية ليمنح سيارتك لمعة تدوم، وتنظيف أسهل، وحماية تدوم لسنوات", date: "26 سبتمبر 2025", img: Image13
-    },
-    { id: 3, title: "تكلفة حماية سيارتك؟ تعرّف على باقاتنا المصممة لك وعروضنا.", description: "في Bronze Cover نوفّر خيارات حماية متعددة تناسب ميزانيتك واحتياج سيارتك. من الحماية النصفية، إلى الكاملة، مع أو بدون نانو سيراميك. ابدأ من 999 ريال فقط، واحصل على حماية عالية الجودة وضمان حقيقي. اتصل الآن لمعرفة العرض الأنسب لسيارتك.", date: "27 سبتمبر 2025", img: Image8 },
-    { id: 4, title: "عملية تركيب الحماية: كيف نحافظ على كل تفصيلة في سيارتك", description: "التركيب في برونز كفر يتم بأيدي فريق فني مدرب على أعلى مستوى، وباستخدام معدات وتقنيات احترافية لضمان نتيجة مثالية. نوفر لك بيئة نظيفة، تغطية كاملة، واهتمام بأدق التفاصيل من البداية للنهاية.", date: "28 سبتمبر 2025", img: Image9 },
-    { id: 5, title: "ليش حماية السيارة صارت ضرورة اليوم؟", description: "طرق السفر الطويلة، حرارة الشمس، والخدوش اليومية كلها تهدد طلاء سيارتك. الحماية اليوم مو رفاهية، بل استثمار طويل الأمد. احمِ استثمارك مع حماية PPF أو النانو سيراميك من Bronze Cover", date: "29 سبتمبر 2025", img: Image10 },
-    { id: 6, title: "حماية السيارة من الخدوش لا تنتظر الخدش الأول! حماية تمنع وتغطي.", description: "الخدوش البسيطة تتحول لتقشير في الطلاء مع الوقت. مع PPF الشفاف، تكون الطبقة الأولى دفاع ضد أي خدش أو أثر بسيط. خلي سيارتك جديدة كل يوم مع حلول الحماية الذكية.", date: "30 سبتمبر 2025", img: Image12 },
-    { id: 7, title: "تغليف السيارة من الخارج؟ غيّر شكل سيارتك واحمِها بنفس الوقت", description: "برونز كفر يقدم تغليف خارجي بلونك المفضل، سواء مطفي، لمعة، أو تغيير لون كامل. والأجمل؟ الحماية تكون مدمجة، بدون ما تتأثر السيارة أو الطلاء الأصلي.", date: "30 سبتمبر 2025", img: Image12 },
-    { id: 8, title: "حماية من الداخل: دعاسات جلد أو بلاستيك حسب ذوقك", description: "الاهتمام بالديكور الداخلي يرفع من راحة القيادة ويحافظ على نظافة السيارة. في Bronze Cover، نوفر خيارات دعاسات متعددة تناسب جميع الأذواق، ومقاومة للماء والتآكل.", date: "30 سبتمبر 2025", img: Image12 },
-    { id: 9, title: "أفلام حماية السيارات: شفافة، قوية، وبتقنية حديثة", description: "أفلام الحماية الشفافة من برونز كفر مصممة لتتماشى مع شكل السيارة دون أن تؤثر على اللون أو التصميم. مقاومة للخدوش، الطين، وأشعة الشمس، مع ضمان رسمي على الجودة والتركيب.", date: "30 سبتمبر 2025", img: Image12 },
-  ];
-
   const [allBlogs, setAllBlogs] = useState<BlogItem[]>([]);
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
   const [allServices, setAllServices] = useState<ServiceItem[]>([]);
 
   useEffect(() => {
-    GetBlogs(setAllBlogs, setError, setLoading);
-    GetServices(setAllServices, setError, setLoading);
+    GetBlogs(setAllBlogs, () => {}, () => {});
+    GetServices(setAllServices, () => {}, () => {});
   }, []);
 
   return (

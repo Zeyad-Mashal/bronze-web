@@ -28,7 +28,7 @@ const GetServices = async (setAllServices, setError, setLoading) => {
                 setLoading(false)
             }
         }
-    } catch (error) {
+    } catch {
         setError('An error occurred');
         setLoading(false)
     }
