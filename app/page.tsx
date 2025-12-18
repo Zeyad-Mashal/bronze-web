@@ -39,7 +39,7 @@ const formatDate = (dateString: string): string => {
     const year = date.getFullYear();
     return `${month}/${day}/${year}`;
   } catch {
-      return dateString; // Return original if error
+    return dateString; // Return original if error
   }
 };
 
@@ -48,8 +48,8 @@ export default function Home() {
   const [allServices, setAllServices] = useState<ServiceItem[]>([]);
 
   useEffect(() => {
-    GetBlogs(setAllBlogs, () => {}, () => {});
-    GetServices(setAllServices, () => {}, () => {});
+    GetBlogs(setAllBlogs, () => { }, () => { });
+    GetServices(setAllServices, () => { }, () => { });
   }, []);
 
   return (
@@ -70,7 +70,7 @@ export default function Home() {
           {/* النص */}
           <div className="text-center">
             <h1 className="text-4xl font-bold text-[#b87333] mb-6">
-              حماية السيارات! في برونز كفر مرحبا بكم
+              مرحبا بكم في برونز كفر لحمايه  تغليف السيارات.
             </h1>
 
             <p className="text-lg leading-8 mb-4">
