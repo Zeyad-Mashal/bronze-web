@@ -70,7 +70,7 @@ export default function Home() {
           {/* النص */}
           <div className="text-center">
             <h1 className="text-4xl font-bold text-[#b87333] mb-6">
-              مرحبا بكم في برونز كفر لحمايه  تغليف السيارات.
+              مرحبا بكم في برونز كفر لحمايه و تغليف السيارات.
             </h1>
 
             <p className="text-lg leading-8 mb-4">
