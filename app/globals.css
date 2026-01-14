@@ -12,15 +12,54 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    /* --background: #0a0a0a; */
     --foreground: #ededed;
   }
-}
+} */
 
 body {
-  background: var(--background);
+  background: var(--foreground);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* error page */
+.error {
+  background-color: #171717;
+  color: #ededed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+.error h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.error p {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.error a {
+  color: #ededed;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+
+.error a:hover {
+  color: #cd7f32;
 }

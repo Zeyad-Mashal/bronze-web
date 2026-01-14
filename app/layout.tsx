@@ -12,11 +12,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ar" dir="rtl">
       <body>
-        <Navbar />
+        {/* <Navbar /> */}
 
         <main className="min-h-screen">{children}</main>
 
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
